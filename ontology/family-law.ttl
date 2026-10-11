@@ -1,0 +1,381 @@
+@prefix fl: <http://kltn.local/family-law#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fl: a owl:Ontology ;
+  rdfs:label "Ontology hôn nhân và gia đình Việt Nam"@vi .
+
+fl:LegalConcept a owl:Class .
+fl:LegalProvision a owl:Class .
+fl:LegalNorm a owl:Class .
+fl:Actor a owl:Class .
+fl:regulatedBy a owl:ObjectProperty ; rdfs:domain fl:LegalConcept ; rdfs:range fl:LegalProvision .
+fl:detailedBy a owl:ObjectProperty ; rdfs:domain fl:LegalProvision ; rdfs:range fl:LegalProvision .
+fl:cites a owl:ObjectProperty ; rdfs:domain fl:LegalProvision ; rdfs:range fl:LegalProvision .
+fl:hasException a owl:ObjectProperty .
+fl:hasCondition a owl:ObjectProperty ; rdfs:domain fl:LegalNorm ; rdfs:range fl:LegalConcept .
+fl:hasSource a owl:ObjectProperty ; rdfs:domain fl:LegalNorm ; rdfs:range fl:LegalProvision .
+fl:appliesToActor a owl:ObjectProperty ; rdfs:domain fl:LegalConcept ; rdfs:range fl:Actor .
+fl:narrowerThan a owl:ObjectProperty ; rdfs:domain fl:LegalConcept ; rdfs:range fl:LegalConcept .
+fl:provisionId a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+fl:ActorVoChong a fl:Actor ; rdfs:label "Vợ, chồng"@vi .
+fl:ActorChaMe a fl:Actor ; rdfs:label "Cha, mẹ"@vi .
+fl:ActorCon a fl:Actor ; rdfs:label "Con"@vi .
+fl:ActorOngBa a fl:Actor ; rdfs:label "Ông bà"@vi .
+fl:ActorNguoiNuocNgoai a fl:Actor ; rdfs:label "Người nước ngoài"@vi .
+fl:ActorNguoiGiamHo a fl:Actor ; rdfs:label "Người giám hộ"@vi .
+
+fl:NormDieuKienKetHon a fl:LegalNorm ; rdfs:label "Chuẩn mực điều kiện kết hôn"@vi .
+fl:NormChiaTaiSanLyHon a fl:LegalNorm ; rdfs:label "Chuẩn mực chia tài sản khi ly hôn"@vi .
+fl:NormNuoiCon a fl:LegalNorm ; rdfs:label "Chuẩn mực nuôi con sau ly hôn"@vi .
+
+fl:KetHon a fl:LegalConcept ;
+  rdfs:label "Kết hôn"@vi ;
+  skos:altLabel "kết hôn"@vi ;
+  skos:altLabel "cuoi nhau"@vi ;
+  skos:altLabel "lấy vợ"@vi ;
+  skos:altLabel "lấy chồng"@vi .
+
+fl:DoTuoiKetHon a fl:LegalConcept ;
+  rdfs:label "Độ tuổi kết hôn"@vi ;
+  skos:altLabel "tuổi kết hôn"@vi ;
+  skos:altLabel "bao nhiêu tuổi thì được kết hôn"@vi ;
+  skos:altLabel "bao nhiêu tuổi thì được cưới"@vi ;
+  skos:altLabel "đủ tuổi kết hôn"@vi ;
+  skos:altLabel "tảo hôn"@vi .
+
+fl:TuNguyenKetHon a fl:LegalConcept ;
+  rdfs:label "Tự nguyện kết hôn"@vi ;
+  skos:altLabel "tự nguyện kết hôn"@vi ;
+  skos:altLabel "bị ép lấy chồng"@vi ;
+  skos:altLabel "bị ép lấy vợ"@vi ;
+  skos:altLabel "không tự nguyện"@vi .
+
+fl:NangLucHanhViDanSu a fl:LegalConcept ;
+  rdfs:label "Năng lực hành vi dân sự khi kết hôn"@vi ;
+  skos:altLabel "mất năng lực hành vi dân sự"@vi ;
+  skos:altLabel "không đủ năng lực hành vi"@vi .
+
+fl:CamKetHon a fl:LegalConcept ;
+  rdfs:label "Cấm kết hôn"@vi ;
+  skos:altLabel "cấm kết hôn"@vi ;
+  skos:altLabel "không được kết hôn"@vi ;
+  skos:altLabel "trường hợp cấm"@vi .
+
+fl:TaoHon a fl:LegalConcept ;
+  rdfs:label "Tảo hôn"@vi ;
+  skos:altLabel "tảo hôn"@vi ;
+  skos:altLabel "lấy vợ khi chưa đủ tuổi"@vi ;
+  skos:altLabel "cưới non"@vi .
+
+fl:CuongEpKetHon a fl:LegalConcept ;
+  rdfs:label "Cưỡng ép kết hôn"@vi ;
+  skos:altLabel "cưỡng ép kết hôn"@vi ;
+  skos:altLabel "ép kết hôn"@vi ;
+  skos:altLabel "bắt cưới"@vi .
+
+fl:LuaDoiKetHon a fl:LegalConcept ;
+  rdfs:label "Lừa dối kết hôn"@vi ;
+  skos:altLabel "lừa dối kết hôn"@vi ;
+  skos:altLabel "lừa cưới"@vi .
+
+fl:CanTroKetHon a fl:LegalConcept ;
+  rdfs:label "Cản trở kết hôn"@vi ;
+  skos:altLabel "cản trở kết hôn"@vi ;
+  skos:altLabel "ngăn cản kết hôn"@vi .
+
+fl:KetHonGiaTao a fl:LegalConcept ;
+  rdfs:label "Kết hôn giả tạo"@vi ;
+  skos:altLabel "kết hôn giả"@vi ;
+  skos:altLabel "kết hôn giả tạo"@vi ;
+  skos:altLabel "cưới giả"@vi .
+
+fl:YeuSachCuaCai a fl:LegalConcept ;
+  rdfs:label "Yêu sách của cải trong kết hôn"@vi ;
+  skos:altLabel "thách cưới"@vi ;
+  skos:altLabel "yêu sách của cải"@vi ;
+  skos:altLabel "đòi của hồi môn"@vi .
+
+fl:KetHonTraiPhapLuat a fl:LegalConcept ;
+  rdfs:label "Kết hôn trái pháp luật"@vi ;
+  skos:altLabel "kết hôn trái pháp luật"@vi ;
+  skos:altLabel "kết hôn không đúng điều kiện"@vi .
+
+fl:HuyKetHonTraiPhapLuat a fl:LegalConcept ;
+  rdfs:label "Hủy kết hôn trái pháp luật"@vi ;
+  skos:altLabel "hủy kết hôn"@vi ;
+  skos:altLabel "xin hủy việc kết hôn"@vi .
+
+fl:DangKyKetHon a fl:LegalConcept ;
+  rdfs:label "Đăng ký kết hôn"@vi ;
+  skos:altLabel "đăng ký kết hôn"@vi ;
+  skos:altLabel "giấy chứng nhận kết hôn"@vi ;
+  skos:altLabel "chưa đăng ký kết hôn"@vi .
+
+fl:HonNhanCungGioiTinh a fl:LegalConcept ;
+  rdfs:label "Hôn nhân cùng giới tính"@vi ;
+  skos:altLabel "kết hôn đồng giới"@vi ;
+  skos:altLabel "cùng giới tính"@vi ;
+  skos:altLabel "hai người nam kết hôn"@vi ;
+  skos:altLabel "hai người nữ kết hôn"@vi .
+
+fl:ChungSongNhuVoChong a fl:LegalConcept ;
+  rdfs:label "Chung sống như vợ chồng"@vi ;
+  skos:altLabel "chung sống như vợ chồng"@vi ;
+  skos:altLabel "sống chung không đăng ký"@vi ;
+  skos:altLabel "không có đăng ký kết hôn"@vi .
+
+fl:ThoiKyHonNhan a fl:LegalConcept ;
+  rdfs:label "Thời kỳ hôn nhân"@vi ;
+  skos:altLabel "thời kỳ hôn nhân"@vi ;
+  skos:altLabel "trong thời kỳ hôn nhân"@vi .
+
+fl:QuyenNghiaVuVoChong a fl:LegalConcept ;
+  rdfs:label "Quyền và nghĩa vụ của vợ chồng"@vi ;
+  skos:altLabel "quyền nghĩa vụ vợ chồng"@vi ;
+  skos:altLabel "bình đẳng vợ chồng"@vi ;
+  skos:altLabel "tình nghĩa vợ chồng"@vi .
+
+fl:DaiDienVoChong a fl:LegalConcept ;
+  rdfs:label "Đại diện giữa vợ và chồng"@vi ;
+  skos:altLabel "đại diện vợ chồng"@vi ;
+  skos:altLabel "vợ đứng tên sổ đỏ"@vi ;
+  skos:altLabel "chỉ ghi tên một người"@vi .
+
+fl:TaiSanChung a fl:LegalConcept ;
+  rdfs:label "Tài sản chung của vợ chồng"@vi ;
+  skos:altLabel "tài sản chung"@vi ;
+  skos:altLabel "nhà chung"@vi ;
+  skos:altLabel "tiền lương vợ chồng"@vi .
+
+fl:TaiSanRieng a fl:LegalConcept ;
+  rdfs:label "Tài sản riêng của vợ chồng"@vi ;
+  skos:altLabel "tài sản riêng"@vi ;
+  skos:altLabel "của hồi môn"@vi ;
+  skos:altLabel "tài sản trước khi kết hôn"@vi .
+
+fl:CheDoTaiSanLuatDinh a fl:LegalConcept ;
+  rdfs:label "Chế độ tài sản theo luật định"@vi ;
+  skos:altLabel "chế độ tài sản luật định"@vi ;
+  skos:altLabel "không có thỏa thuận tài sản"@vi .
+
+fl:CheDoTaiSanThoaThuan a fl:LegalConcept ;
+  rdfs:label "Chế độ tài sản theo thỏa thuận"@vi ;
+  skos:altLabel "thỏa thuận tài sản"@vi ;
+  skos:altLabel "hôn ước"@vi ;
+  skos:altLabel "chế độ tài sản thỏa thuận"@vi .
+
+fl:ChiaTaiSanTrongHonNhan a fl:LegalConcept ;
+  rdfs:label "Chia tài sản chung trong thời kỳ hôn nhân"@vi ;
+  skos:altLabel "chia tài sản khi còn đang kết hôn"@vi ;
+  skos:altLabel "chia tài sản trong thời kỳ hôn nhân"@vi .
+
+fl:LyHon a fl:LegalConcept ;
+  rdfs:label "Ly hôn"@vi ;
+  skos:altLabel "ly hôn"@vi ;
+  skos:altLabel "chia tay"@vi ;
+  skos:altLabel "chấm dứt hôn nhân"@vi .
+
+fl:LyHonThuanTinh a fl:LegalConcept ;
+  rdfs:label "Thuận tình ly hôn"@vi ;
+  skos:altLabel "thuận tình ly hôn"@vi ;
+  skos:altLabel "hai bên đồng ý ly hôn"@vi ;
+  skos:altLabel "ly hôn đồng thuận"@vi .
+
+fl:LyHonTheoYeuCauMotBen a fl:LegalConcept ;
+  rdfs:label "Ly hôn theo yêu cầu một bên"@vi ;
+  skos:altLabel "đơn phương ly hôn"@vi ;
+  skos:altLabel "ly hôn một phía"@vi ;
+  skos:altLabel "ly hôn một mình"@vi ;
+  skos:altLabel "không chịu ký đơn"@vi ;
+  skos:altLabel "vợ không đồng ý ly hôn"@vi ;
+  skos:altLabel "chồng không ký đơn"@vi .
+
+fl:HoaGiaiLyHon a fl:LegalConcept ;
+  rdfs:label "Hòa giải khi ly hôn"@vi ;
+  skos:altLabel "hòa giải ly hôn"@vi ;
+  skos:altLabel "hòa giải ở tòa"@vi ;
+  skos:altLabel "hòa giải ở cơ sở"@vi .
+
+fl:ChiaTaiSanKhiLyHon a fl:LegalConcept ;
+  rdfs:label "Chia tài sản khi ly hôn"@vi ;
+  skos:altLabel "chia tài sản khi ly hôn"@vi ;
+  skos:altLabel "chia nhà khi ly hôn"@vi ;
+  skos:altLabel "chia nhà, chia đất"@vi ;
+  skos:altLabel "chia đất khi ly hôn"@vi ;
+  skos:altLabel "chia sổ đỏ"@vi .
+
+fl:NuoiConSauLyHon a fl:LegalConcept ;
+  rdfs:label "Nuôi con sau ly hôn"@vi ;
+  skos:altLabel "quyền nuôi con"@vi ;
+  skos:altLabel "giành con"@vi ;
+  skos:altLabel "ai được nuôi con"@vi ;
+  skos:altLabel "theo bố hay theo mẹ"@vi ;
+  skos:altLabel "thăm nom con sau ly hôn"@vi .
+
+fl:CapDuongSauLyHon a fl:LegalConcept ;
+  rdfs:label "Cấp dưỡng sau ly hôn"@vi ;
+  skos:altLabel "cấp dưỡng sau ly hôn"@vi ;
+  skos:altLabel "tiền nuôi con sau ly hôn"@vi ;
+  skos:altLabel "cấp dưỡng cho vợ khi ly hôn"@vi .
+
+fl:XacDinhChaMeCon a fl:LegalConcept ;
+  rdfs:label "Xác định cha, mẹ, con"@vi ;
+  skos:altLabel "xác định cha"@vi ;
+  skos:altLabel "xác định mẹ"@vi ;
+  skos:altLabel "xác định con"@vi ;
+  skos:altLabel "nhận cha cho con"@vi .
+
+fl:NhanChaMeCon a fl:LegalConcept ;
+  rdfs:label "Nhận cha, mẹ, con"@vi ;
+  skos:altLabel "nhận cha mẹ con"@vi ;
+  skos:altLabel "làm giấy nhận con"@vi ;
+  skos:altLabel "nhận cha"@vi .
+
+fl:NghiaVuChaMe a fl:LegalConcept ;
+  rdfs:label "Nghĩa vụ của cha mẹ"@vi ;
+  skos:altLabel "nghĩa vụ cha mẹ"@vi ;
+  skos:altLabel "chăm sóc nuôi dưỡng con"@vi ;
+  skos:altLabel "giáo dục con"@vi .
+
+fl:QuyenCuaCon a fl:LegalConcept ;
+  rdfs:label "Quyền của con"@vi ;
+  skos:altLabel "quyền của con"@vi ;
+  skos:altLabel "tài sản riêng của con"@vi .
+
+fl:GiamHo a fl:LegalConcept ;
+  rdfs:label "Giám hộ trong quan hệ gia đình"@vi ;
+  skos:altLabel "người giám hộ"@vi ;
+  skos:altLabel "giám hộ"@vi .
+
+fl:NhanConNuoi a fl:LegalConcept ;
+  rdfs:label "Nuôi con nuôi"@vi ;
+  skos:altLabel "con nuôi"@vi ;
+  skos:altLabel "cha nuôi"@vi ;
+  skos:altLabel "mẹ nuôi"@vi .
+
+fl:MangThaiHoNhanDao a fl:LegalConcept ;
+  rdfs:label "Mang thai hộ vì mục đích nhân đạo"@vi ;
+  skos:altLabel "mang thai hộ nhân đạo"@vi ;
+  skos:altLabel "mang thai hộ"@vi .
+
+fl:MangThaiHoThuongMai a fl:LegalConcept ;
+  rdfs:label "Mang thai hộ vì mục đích thương mại"@vi ;
+  skos:altLabel "mang thai hộ thương mại"@vi ;
+  skos:altLabel "mang thai hộ lấy tiền"@vi .
+
+fl:HoTroSinhSan a fl:LegalConcept ;
+  rdfs:label "Sinh con bằng kỹ thuật hỗ trợ sinh sản"@vi ;
+  skos:altLabel "thụ tinh trong ống nghiệm"@vi ;
+  skos:altLabel "hỗ trợ sinh sản"@vi .
+
+fl:CapDuong a fl:LegalConcept ;
+  rdfs:label "Cấp dưỡng"@vi ;
+  skos:altLabel "cấp dưỡng"@vi ;
+  skos:altLabel "chu cấp"@vi ;
+  skos:altLabel "tiền nuôi"@vi .
+
+fl:MucCapDuong a fl:LegalConcept ;
+  rdfs:label "Mức cấp dưỡng"@vi ;
+  skos:altLabel "mức cấp dưỡng"@vi ;
+  skos:altLabel "cấp dưỡng bao nhiêu"@vi ;
+  skos:altLabel "mỗi tháng phải đưa bao nhiêu"@vi .
+
+fl:PhuongThucCapDuong a fl:LegalConcept ;
+  rdfs:label "Phương thức cấp dưỡng"@vi ;
+  skos:altLabel "đóng cấp dưỡng hàng tháng"@vi ;
+  skos:altLabel "cấp dưỡng một lần"@vi .
+
+fl:ChamDutCapDuong a fl:LegalConcept ;
+  rdfs:label "Chấm dứt cấp dưỡng"@vi ;
+  skos:altLabel "khi nào hết cấp dưỡng"@vi ;
+  skos:altLabel "chấm dứt cấp dưỡng"@vi ;
+  skos:altLabel "không phải cấp dưỡng nữa"@vi .
+
+fl:NguoiYeuCauCapDuong a fl:LegalConcept ;
+  rdfs:label "Người có quyền yêu cầu cấp dưỡng"@vi ;
+  skos:altLabel "ai được yêu cầu cấp dưỡng"@vi ;
+  skos:altLabel "trốn tránh cấp dưỡng"@vi .
+
+fl:TapQuan a fl:LegalConcept ;
+  rdfs:label "Tập quán về hôn nhân và gia đình"@vi ;
+  skos:altLabel "tập quán"@vi ;
+  skos:altLabel "phong tục kết hôn"@vi .
+
+fl:TapQuanLacHau a fl:LegalConcept ;
+  rdfs:label "Tập quán lạc hậu"@vi ;
+  skos:altLabel "tập quán lạc hậu"@vi ;
+  skos:altLabel "hủ tục"@vi .
+
+fl:YeuToNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Yếu tố nước ngoài"@vi ;
+  skos:altLabel "yếu tố nước ngoài"@vi ;
+  skos:altLabel "người nước ngoài"@vi ;
+  skos:altLabel "có quốc tịch nước ngoài"@vi .
+
+fl:KetHonYeuToNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Kết hôn có yếu tố nước ngoài"@vi ;
+  skos:altLabel "kết hôn với người nước ngoài"@vi ;
+  skos:altLabel "cưới chồng nước ngoài"@vi ;
+  skos:altLabel "cưới vợ nước ngoài"@vi .
+
+fl:LyHonYeuToNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Ly hôn có yếu tố nước ngoài"@vi ;
+  skos:altLabel "ly hôn với người nước ngoài"@vi ;
+  skos:altLabel "ly hôn ở nước ngoài"@vi .
+
+fl:XacDinhChaMeConYeuToNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Xác định cha mẹ con có yếu tố nước ngoài"@vi ;
+  skos:altLabel "nhận con có yếu tố nước ngoài"@vi ;
+  skos:altLabel "cha người nước ngoài"@vi .
+
+fl:CapDuongYeuToNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Cấp dưỡng có yếu tố nước ngoài"@vi ;
+  skos:altLabel "cấp dưỡng người nước ngoài"@vi ;
+  skos:altLabel "cấp dưỡng ở nước ngoài"@vi .
+
+fl:HopPhapHoaLanhSu a fl:LegalConcept ;
+  rdfs:label "Hợp pháp hóa lãnh sự"@vi ;
+  skos:altLabel "hợp pháp hóa lãnh sự"@vi ;
+  skos:altLabel "giấy tờ nước ngoài"@vi .
+
+fl:CongNhanBanAnNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Công nhận bản án nước ngoài"@vi ;
+  skos:altLabel "công nhận ly hôn nước ngoài"@vi ;
+  skos:altLabel "bản án nước ngoài"@vi .
+
+fl:GiayXacNhanTinhTrangHonNhan a fl:LegalConcept ;
+  rdfs:label "Giấy xác nhận tình trạng hôn nhân"@vi ;
+  skos:altLabel "giấy xác nhận tình trạng hôn nhân"@vi ;
+  skos:altLabel "giấy độc thân"@vi ;
+  skos:altLabel "xác nhận chưa kết hôn"@vi .
+
+fl:GhiChuKetHonNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Ghi vào sổ việc kết hôn ở nước ngoài"@vi ;
+  skos:altLabel "ghi chú kết hôn"@vi ;
+  skos:altLabel "kết hôn ở nước ngoài rồi về việt nam"@vi ;
+  skos:altLabel "ghi vào sổ việc kết hôn"@vi .
+
+fl:TrungTamTuVanHonNhan a fl:LegalConcept ;
+  rdfs:label "Trung tâm tư vấn hôn nhân có yếu tố nước ngoài"@vi ;
+  skos:altLabel "trung tâm tư vấn hôn nhân"@vi ;
+  skos:altLabel "tư vấn kết hôn người nước ngoài"@vi .
+
+fl:ApDungPhapLuatNuocNgoai a fl:LegalConcept ;
+  rdfs:label "Áp dụng pháp luật nước ngoài"@vi ;
+  skos:altLabel "áp dụng pháp luật nước ngoài"@vi ;
+  skos:altLabel "luật nước nào"@vi .
+
+fl:BaoLucGiaDinh a fl:LegalConcept ;
+  rdfs:label "Bạo lực gia đình"@vi ;
+  skos:altLabel "bạo lực gia đình"@vi ;
+  skos:altLabel "bị chồng đánh"@vi ;
+  skos:altLabel "bị vợ bạo hành"@vi .
+
+fl:ThanhVienGiaDinh a fl:LegalConcept ;
+  rdfs:label "Thành viên gia đình"@vi ;
+  skos:altLabel "thành viên gia đình"@vi ;
+  skos:altLabel "ai là người thân"@vi .

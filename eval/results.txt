@@ -1,0 +1,26 @@
+Embedding: hash-ngram
+Câu hỏi: 60
+bm25: Recall@5=0.625 MRR=0.637 P@5=0.196 từ_chối_đúng=1.000
+  single: Recall@5=0.958 từ_chối_đúng=1.000
+  multi: Recall@5=0.667 từ_chối_đúng=1.000
+  cross: Recall@5=0.625 từ_chối_đúng=1.000
+  lay: Recall@5=0.250 từ_chối_đúng=1.000
+  oos: Recall@5=n/a từ_chối_đúng=1.000
+dense: Recall@5=0.531 MRR=0.538 P@5=0.158 từ_chối_đúng=1.000
+  single: Recall@5=0.958 từ_chối_đúng=1.000
+  multi: Recall@5=0.542 từ_chối_đúng=1.000
+  cross: Recall@5=0.417 từ_chối_đúng=1.000
+  lay: Recall@5=0.208 từ_chối_đúng=1.000
+  oos: Recall@5=n/a từ_chối_đúng=1.000
+hybrid: Recall@5=0.604 MRR=0.628 P@5=0.188 từ_chối_đúng=1.000
+  single: Recall@5=0.958 từ_chối_đúng=1.000
+  multi: Recall@5=0.625 từ_chối_đúng=1.000
+  cross: Recall@5=0.542 từ_chối_đúng=1.000
+  lay: Recall@5=0.292 từ_chối_đúng=1.000
+  oos: Recall@5=n/a từ_chối_đúng=1.000
+hybrid_ontology: Recall@5=0.750 MRR=0.765 P@5=0.233 từ_chối_đúng=1.000
+  single: Recall@5=0.958 từ_chối_đúng=1.000
+  multi: Recall@5=0.625 từ_chối_đúng=1.000
+  cross: Recall@5=0.792 từ_chối_đúng=1.000
+  lay: Recall@5=0.625 từ_chối_đúng=1.000
+  oos: Recall@5=n/a từ_chối_đúng=1.000
